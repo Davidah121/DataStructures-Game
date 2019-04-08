@@ -16,27 +16,31 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    void FixedUpdate()
+    {
         Vector2 MoveForce = new Vector2(0, 0);
 
         if(Input.GetKey(KeyCode.A))
         {
-            MoveForce.x = -1;
+            MoveForce.x = -speed;
         }
         else if(Input.GetKey(KeyCode.D))
         {
-            MoveForce.x = 1;
+            MoveForce.x = speed;
         }
 
         if (Input.GetKey(KeyCode.W))
         {
-            MoveForce.y = 1;
+            MoveForce.y = speed;
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            MoveForce.y = -1;
+            MoveForce.y = -speed;
         }
 
         rb2d.velocity = MoveForce;
-        
     }
 }
