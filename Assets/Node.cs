@@ -5,6 +5,7 @@ using UnityEngine;
 public class Node : MonoBehaviour
 {
     public Node next;
+    public Node prev;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +22,11 @@ public class Node : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         next.gameObject.SetActive(true);
+        prev.gameObject.SetActive(false);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        gameObject.SetActive(false);
+       // gameObject.SetActive(false);
     }
 }
