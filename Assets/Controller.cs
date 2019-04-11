@@ -12,6 +12,7 @@ public class Controller : MonoBehaviour
     public GameObject[] s = new GameObject[8];
 
     //Constants
+    public const int INVALID = 0;
     public const int GREEN = 1;
     public const int BLUE = 2;
     public const int YELLOW = 3;
