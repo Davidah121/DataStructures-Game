@@ -5,49 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneOnTouch : MonoBehaviour
 {
-
-    private bool playerInZone;
+    public float delay = 440;
 
     public string levelToLoad;
 
     public string sceneName;
 
-    // Use this for initialization
-    void Start()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        playerInZone = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (playerInZone)
+        if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(levelToLoad);
-
+            
+            Invoke("DelayedAction", delay);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void DelayedAction()
     {
-        if (other.name == "Player")
-        {
-            playerInZone = true;
-            StartCoroutine(LoadScene());
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.name == "Player")
-        {
-            playerInZone = false;
-        }
-    }
-
-    IEnumerator LoadScene()
-    {
-        yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene(sceneName);
+      //  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(name, LoadSceneMode.Single);
     }
 }

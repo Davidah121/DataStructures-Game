@@ -9,6 +9,7 @@ public class BecomeNode : MonoBehaviour
     public GameObject Player;
     public GameObject textToDisable;
     public GameObject textToEnable;
+    public Node nodeToDisable;
     public AudioSource wowSound;
     public ParticleSystem wowParticles;
 
@@ -20,6 +21,7 @@ public class BecomeNode : MonoBehaviour
             Player.gameObject.SetActive(false);
             textToDisable.gameObject.SetActive(false);
             textToEnable.gameObject.SetActive(true);
+            nodeToDisable.gameObject.SetActive(false);
             wowSound.Play();
             wowParticles.Play();           
 
