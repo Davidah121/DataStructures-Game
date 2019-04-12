@@ -9,6 +9,8 @@ public class BecomeNode : MonoBehaviour
     public GameObject Player;
     public GameObject textToDisable;
     public GameObject textToEnable;
+    public AudioSource wowSound;
+    public ParticleSystem wowParticles;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,6 +20,9 @@ public class BecomeNode : MonoBehaviour
             Player.gameObject.SetActive(false);
             textToDisable.gameObject.SetActive(false);
             textToEnable.gameObject.SetActive(true);
+            wowSound.Play();
+            wowParticles.Play();           
+
         }
     }
 }
