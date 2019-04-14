@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadSceneOnTouch : MonoBehaviour
+public class LoadMainMenu : MonoBehaviour
 {
     public float delay = 440;
 
@@ -15,14 +15,14 @@ public class LoadSceneOnTouch : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            
+
             Invoke("DelayedAction", delay);
         }
     }
 
     void DelayedAction()
     {
-       //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        SceneManager.LoadScene(name, LoadSceneMode.Single);
+        //  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(name + "MainMenu");
     }
 }

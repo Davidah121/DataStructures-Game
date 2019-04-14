@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LinkedList/LL_Add.unity
     guid: f6f47c85e298a76409cce674e72565a0
+  - enabled: 1
+    path: Assets/Scenes/MainMenu(Clone).unity
+    guid: c33bbdf130a58e4448fc72cc42b4d5e3
   m_configObjects: {}

@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     private float jumpTimeCounter;
     public float jumpTime;
 
+    public GameObject jumpEffect;
+    public AudioSource jumpSound;
+
 
     private bool jump;
 
@@ -62,6 +65,9 @@ public class PlayerController : MonoBehaviour
         {
             jump = true;
             print("jump");
+            jumpSound.Play();
+            jumpEffect.SetActive(true);
+            Instantiate(jumpEffect, transform.position, transform.rotation);
         }
 
     }

@@ -35,8 +35,13 @@ public class MoveNodes : MonoBehaviour
             Debug.Log("Player in right spot");
             inTriggerZone = true;
         }
-        else
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
         {
+            Debug.Log("Player exit spot.");
             inTriggerZone = false;
         }
     }
