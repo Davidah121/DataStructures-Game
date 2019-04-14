@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LinkedList/LL_Tail.unity
     guid: bdab224af4ca56943a2d690ca7990fe8
+  - enabled: 1
+    path: Assets/Scenes/LinkedList/LL_Add.unity
+    guid: f6f47c85e298a76409cce674e72565a0
   m_configObjects: {}
