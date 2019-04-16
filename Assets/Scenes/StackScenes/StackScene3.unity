@@ -3649,7 +3649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elements: 0300000004000000
-  loadLevel: MainMenu
+  loadLevel: StackScene4
 --- !u!212 &1332630446
 SpriteRenderer:
   m_ObjectHideFlags: 0

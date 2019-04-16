@@ -22267,8 +22267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 4
-  levelToLoad: End
-  sceneName: End
+  levelToLoad: LL_End
+  sceneName: LL_End
 --- !u!1 &2120752194
 GameObject:
   m_ObjectHideFlags: 0
