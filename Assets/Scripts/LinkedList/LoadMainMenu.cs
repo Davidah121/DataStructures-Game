@@ -22,7 +22,7 @@ public class LoadMainMenu : MonoBehaviour
 
     void DelayedAction()
     {
-        //  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        SceneManager.LoadScene(name + "MainMenu");
+         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(name + "MainMenu");
     }
 }
