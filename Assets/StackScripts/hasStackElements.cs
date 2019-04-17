@@ -13,16 +13,44 @@ public class hasStackElements : MonoBehaviour
     {
         if (loadLevel != "")
         {
-            SceneManager.LoadScene(loadLevel, LoadSceneMode.Single);
+            int tSamples = (int)(GameObject.Find("BOTW_Music").GetComponent<AudioSource>().time / 10.5f);
+
+            if (tSamples % 2 == 0)
+            {
+                GameObject.Find("SComplete1").GetComponent<AudioSource>().Play();
+            }
+            else
+            {
+                GameObject.Find("SComplete2").GetComponent<AudioSource>().Play();
+            }
+            Invoke("DelayedAction", 2f);
         }
         else
         {
+            //Is a door/ Should be a door
+            int tSamples = (int)(GameObject.Find("BOTW_Music").GetComponent<AudioSource>().time / 10.5f);
+
+            if (tSamples % 2 == 0)
+            {
+                GameObject.Find("SDoor1").GetComponent<AudioSource>().Play();
+            }
+            else
+            {
+                GameObject.Find("SDoor2").GetComponent<AudioSource>().Play();
+            }
+
             Destroy(this.gameObject);
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void DelayedAction()
+    {
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(loadLevel, LoadSceneMode.Single);
+    }
+
+// Start is called before the first frame update
+void Start()
     {
         for (int i = 0; i < elements.Length; i++)
         {
@@ -126,6 +154,7 @@ public class hasStackElements : MonoBehaviour
                     {
                         Controller.c.pop();
                     }
+
                     DOTHING();
                 }
             }
