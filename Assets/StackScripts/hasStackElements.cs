@@ -97,11 +97,14 @@ void Start()
         }
 
         KeySprite[] objs = transform.GetComponentsInChildren<KeySprite>();
+        GameObject[] guiObjects = GameObject.FindGameObjectsWithTag("GuiList");
+
 
         for (int i=0; i<size; i++)
         {
             if (things[i] == elements[i])
             {
+                guiObjects[i].GetComponent<GuiKeyScript>().isActive = true;
                 objs[i].isActive = true;
             }
             else
@@ -119,10 +122,12 @@ void Start()
     private void OnCollisionExit2D(Collision2D collision)
     {
         isColl = false;
-        KeySprite[] objs = transform.GetComponentsInChildren<KeySprite>();
-        
+        GuiKeyScript[] objs = transform.GetComponentsInChildren<GuiKeyScript>();
+        GameObject[] guiObjects = GameObject.FindGameObjectsWithTag("GuiList");
+
         for (int i = 0; i < objs.Length; i++)
         {
+            guiObjects[i].GetComponent<GuiKeyScript>().isActive = false;
             objs[i].isActive = false;
         }
     }
@@ -153,6 +158,12 @@ void Start()
                     for (int i = 0; i < size; i++)
                     {
                         Controller.c.pop();
+                    }
+
+                    GameObject[] guiObjects = GameObject.FindGameObjectsWithTag("GuiList");
+                    for (int i=0; i<guiObjects.Length; i++)
+                    {
+                        guiObjects[i].GetComponent<GuiKeyScript>().isActive = false;
                     }
 
                     DOTHING();

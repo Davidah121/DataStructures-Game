@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class KeySprite : MonoBehaviour
+public class GuiKeyScript : MonoBehaviour
 {
     public bool isActive = false;
     public Color defaultColor;
@@ -18,17 +19,17 @@ public class KeySprite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isActive)
+        if (isActive)
         {
             Color newCol = new Color(defaultColor.r + v, defaultColor.g + v, defaultColor.b + v);
 
-            GetComponent<SpriteRenderer>().color = newCol;
+            GetComponent<Image>().color = newCol;
 
-            if(goBack)
+            if (goBack)
             {
-                v -= 4f/256f;
+                v -= 4f / 256f;
 
-                if(v<=0f)
+                if (v <= 0f)
                 {
                     v = 0f;
                     goBack = false;
@@ -38,7 +39,7 @@ public class KeySprite : MonoBehaviour
             {
                 v += 4f / 256f;
 
-                if(v>=1f)
+                if (v >= 1f)
                 {
                     v = 1f;
                     goBack = true;
@@ -48,7 +49,7 @@ public class KeySprite : MonoBehaviour
         else
         {
             v = 0f;
-            GetComponent<SpriteRenderer>().color = defaultColor;
+            GetComponent<Image>().color = defaultColor;
         }
     }
 }

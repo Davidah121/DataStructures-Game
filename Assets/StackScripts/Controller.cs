@@ -27,14 +27,16 @@ public class Controller : MonoBehaviour
         c = this;
         gameStack.Clear();
         updateGuiList();
+
+        GetComponent<StartScript>().initStack();
     }
 
     void updateGuiList()
     {
         for(int i=0; i<s.Length; i++)
         {
-            Image proc = s[i].GetComponent<Image>();
-            proc.color = new Color(0f, 0f, 0f, 0f);
+            GuiKeyScript proc = s[i].GetComponent<GuiKeyScript>();
+            proc.defaultColor = new Color(0f, 0f, 0f, 0f);
         }
 
         int[] oldValues = new int[gameStack.Count];
@@ -42,27 +44,27 @@ public class Controller : MonoBehaviour
         for (int i=0; i<oldValues.Length; i++)
         {
             oldValues[i] = gameStack.Pop();
-            Image proc = s[i].GetComponent<Image>();
+            GuiKeyScript proc = s[i].GetComponent<GuiKeyScript>();
 
             switch (oldValues[i])
             {
                 case GREEN:
-                    proc.color = new Color(0f, 1f, 0f, 1f);
+                    proc.defaultColor = new Color(0f, 1f, 0f, 1f);
                     break;
                 case BLUE:
-                    proc.color = new Color(0f, 0f, 1f, 1f);
+                    proc.defaultColor = new Color(0f, 0f, 1f, 1f);
                     break;
                 case YELLOW:
-                    proc.color = new Color(1f, 1f, 0f, 1f);
+                    proc.defaultColor = new Color(1f, 1f, 0f, 1f);
                     break;
                 case AQUA:
-                    proc.color = new Color(0f, 1f, 1f, 1f);
+                    proc.defaultColor = new Color(0f, 1f, 1f, 1f);
                     break;
                 case PURPLE:
-                    proc.color = new Color(1f, 0f, 1f, 1f);
+                    proc.defaultColor = new Color(1f, 0f, 1f, 1f);
                     break;
                 default:
-                    proc.color = new Color(1f, 1f, 1f, 0f);
+                    proc.defaultColor = new Color(1f, 1f, 1f, 0f);
                     break;
             }
         }
