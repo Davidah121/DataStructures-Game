@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StackScenes/StackScene5.unity
     guid: d3cd8678abad5cf45a7e7858dc6823e1
   - enabled: 1
+    path: Assets/Scenes/StackScenes/StackSceneEnd.unity
+    guid: b30dfc812c3ac7147a533a8ae81583e5
+  - enabled: 1
     path: Assets/Scenes/LinkedList/LL_Head.unity
     guid: 288a4a244f083cb4f9806203cd6685f0
   - enabled: 1
