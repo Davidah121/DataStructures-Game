@@ -11,6 +11,8 @@ public class Controller : MonoBehaviour
     public Stack<int> gameStack = new Stack<int>();
     public GameObject[] s = new GameObject[8];
 
+    public bool playing = true;
+
     //Constants
     public const int INVALID = 0;
     public const int GREEN = 1;
@@ -22,8 +24,15 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        s = GameObject.FindGameObjectsWithTag("GuiList");
-        
+        s[0] = GameObject.Find("S1");
+        s[1] = GameObject.Find("S2");
+        s[2] = GameObject.Find("S3");
+        s[3] = GameObject.Find("S4");
+        s[4] = GameObject.Find("S5");
+        s[5] = GameObject.Find("S6");
+        s[6] = GameObject.Find("S7");
+        s[7] = GameObject.Find("S8");
+
         c = this;
         gameStack.Clear();
         updateGuiList();
