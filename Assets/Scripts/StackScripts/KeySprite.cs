@@ -18,7 +18,7 @@ public class KeySprite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isActive)
+        if(isActive && Controller.c.playing)
         {
             Color newCol = new Color(defaultColor.r + v, defaultColor.g + v, defaultColor.b + v);
 

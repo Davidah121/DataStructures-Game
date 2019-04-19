@@ -13,6 +13,7 @@ public class hasStackElements : MonoBehaviour
     {
         if (loadLevel != "")
         {
+            Controller.c.playing = false;
             int tSamples = (int)(GameObject.Find("BOTW_Music").GetComponent<AudioSource>().time / 10.5f);
 
             if (tSamples % 2 == 0)
@@ -122,7 +123,7 @@ void Start()
     private void OnCollisionExit2D(Collision2D collision)
     {
         isColl = false;
-        GuiKeyScript[] objs = transform.GetComponentsInChildren<GuiKeyScript>();
+        KeySprite[] objs = transform.GetComponentsInChildren<KeySprite>();
         GameObject[] guiObjects = Controller.c.s;
 
         for (int i = 0; i < objs.Length; i++)
