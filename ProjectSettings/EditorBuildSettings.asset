@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: cff55304d07cb7b4fa6af5577a9da002
   - enabled: 1
+    path: Assets/Scenes/StackScenes/StackSceneControls.unity
+    guid: 2e799370894b57f4899dfc49c5074603
+  - enabled: 1
     path: Assets/Scenes/StackScenes/StackScene.unity
     guid: 510032832774f094e983b148a03993cd
   - enabled: 1
