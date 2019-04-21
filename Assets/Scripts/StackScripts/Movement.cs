@@ -21,26 +21,29 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 MoveForce = new Vector2(0, 0);
+        if (Controller.c.playing)
+        {
+            Vector2 MoveForce = new Vector2(0, 0);
 
-        if(Input.GetKey(KeyCode.A))
-        {
-            MoveForce.x = -speed;
-        }
-        else if(Input.GetKey(KeyCode.D))
-        {
-            MoveForce.x = speed;
-        }
+            if (Input.GetKey(KeyCode.A))
+            {
+                MoveForce.x = -speed;
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                MoveForce.x = speed;
+            }
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            MoveForce.y = speed;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            MoveForce.y = -speed;
-        }
+            if (Input.GetKey(KeyCode.W))
+            {
+                MoveForce.y = speed;
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                MoveForce.y = -speed;
+            }
 
-        rb2d.velocity = MoveForce;
+            rb2d.velocity = MoveForce;
+        }
     }
 }

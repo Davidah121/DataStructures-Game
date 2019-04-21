@@ -13,6 +13,7 @@ public class hasStackElements : MonoBehaviour
     {
         if (loadLevel != "")
         {
+            Controller.c.playing = false;
             int tSamples = (int)(GameObject.Find("BOTW_Music").GetComponent<AudioSource>().time / 10.5f);
 
             if (tSamples % 2 == 0)
@@ -97,7 +98,7 @@ void Start()
         }
 
         KeySprite[] objs = transform.GetComponentsInChildren<KeySprite>();
-        GameObject[] guiObjects = GameObject.FindGameObjectsWithTag("GuiList");
+        GameObject[] guiObjects = Controller.c.s;
 
 
         for (int i=0; i<size; i++)
@@ -122,8 +123,8 @@ void Start()
     private void OnCollisionExit2D(Collision2D collision)
     {
         isColl = false;
-        GuiKeyScript[] objs = transform.GetComponentsInChildren<GuiKeyScript>();
-        GameObject[] guiObjects = GameObject.FindGameObjectsWithTag("GuiList");
+        KeySprite[] objs = transform.GetComponentsInChildren<KeySprite>();
+        GameObject[] guiObjects = Controller.c.s;
 
         for (int i = 0; i < objs.Length; i++)
         {
@@ -135,38 +136,41 @@ void Start()
     // Update is called once per frame
     void Update()
     {
-        if (isColl)
+        if (Controller.c.playing)
         {
-            KeySprite[] objs = transform.GetComponentsInChildren<KeySprite>();
-
-            int size = Mathf.Min(Controller.c.getSize(), elements.Length);
-
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (isColl)
             {
-                bool canDo = true;
-                for (int i = 0; i < objs.Length; i++)
+                KeySprite[] objs = transform.GetComponentsInChildren<KeySprite>();
+
+                int size = Mathf.Min(Controller.c.getSize(), elements.Length);
+
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    if (objs[i].isActive == false)
+                    bool canDo = true;
+                    for (int i = 0; i < objs.Length; i++)
                     {
-                        canDo = false;
-                        break;
-                    }
-                }
-
-                if (canDo)
-                {
-                    for (int i = 0; i < size; i++)
-                    {
-                        Controller.c.pop();
+                        if (objs[i].isActive == false)
+                        {
+                            canDo = false;
+                            break;
+                        }
                     }
 
-                    GameObject[] guiObjects = GameObject.FindGameObjectsWithTag("GuiList");
-                    for (int i=0; i<guiObjects.Length; i++)
+                    if (canDo)
                     {
-                        guiObjects[i].GetComponent<GuiKeyScript>().isActive = false;
-                    }
+                        for (int i = 0; i < size; i++)
+                        {
+                            Controller.c.pop();
+                        }
 
-                    DOTHING();
+                        GameObject[] guiObjects = Controller.c.s;
+                        for (int i = 0; i < guiObjects.Length; i++)
+                        {
+                            guiObjects[i].GetComponent<GuiKeyScript>().isActive = false;
+                        }
+
+                        DOTHING();
+                    }
                 }
             }
         }

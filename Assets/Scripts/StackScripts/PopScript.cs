@@ -15,21 +15,21 @@ public class PopScript : MonoBehaviour
     {
         isColl = true;
 
-        GameObject[] guiObjects = GameObject.FindGameObjectsWithTag("GuiList");
+        GameObject guiObjects = GameObject.Find("S1");
 
-        if(guiObjects.Length>0)
+        if(guiObjects!=null)
         {
-            guiObjects[0].GetComponent<GuiKeyScript>().isActive = true;
+            guiObjects.GetComponent<GuiKeyScript>().isActive = true;
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        GameObject[] guiObjects = GameObject.FindGameObjectsWithTag("GuiList");
+        GameObject guiObjects = GameObject.Find("S1");
 
-        if (guiObjects.Length > 0)
+        if (guiObjects != null)
         {
-            guiObjects[0].GetComponent<GuiKeyScript>().isActive = false;
+            guiObjects.GetComponent<GuiKeyScript>().isActive = false;
         }
         isColl = false;
     }
@@ -90,17 +90,20 @@ public class PopScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isColl)
+        if (Controller.c.playing)
         {
-            if (Controller.c.getSize() > 0)
+            if (isColl)
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Controller.c.getSize() > 0)
                 {
-                    playSound();
-                    Controller.c.pop();
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        playSound();
+                        Controller.c.pop();
+                    }
                 }
+
             }
-            
         }
     }
 }
