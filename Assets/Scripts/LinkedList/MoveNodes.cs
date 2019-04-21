@@ -9,7 +9,6 @@ public class MoveNodes : MonoBehaviour
     public GameObject becomeAdd;
     public Transform posOfAdd;
 
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();

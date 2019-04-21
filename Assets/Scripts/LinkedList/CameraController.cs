@@ -13,7 +13,6 @@ public class CameraController : MonoBehaviour
 
     public float smoothing;
 
-    // Use this for initialization
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
@@ -21,16 +20,9 @@ public class CameraController : MonoBehaviour
         isFollowing = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-
     private void FixedUpdate()
     {
         Vector3 newPosition = Vector3.Lerp(transform.position, player.transform.position + offset, smoothing);
         transform.position = newPosition;
     }
 }
-

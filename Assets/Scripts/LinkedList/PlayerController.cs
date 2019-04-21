@@ -30,13 +30,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         moveVelocity = 0f;
@@ -69,7 +62,6 @@ public class PlayerController : MonoBehaviour
             jumpEffect.SetActive(true);
             Instantiate(jumpEffect, transform.position, transform.rotation);
         }
-
     }
 
     private void FixedUpdate()
